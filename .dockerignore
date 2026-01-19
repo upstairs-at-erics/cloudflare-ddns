@@ -1,0 +1,16 @@
+# Ignore environment files
+.env
+.env.*
+*.env
+
+# Ignore Dockerfile itself (optional)
+Dockerfile
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Ignore editor junk
+*.swp
+*.swo
+.DS_Store

@@ -1,0 +1,40 @@
+### PASTE TO PORTAINER STACKS        ####
+### UPDATE ENV KEYS                  ####
+### NOT TESTED FOR docker compose up ####
+
+version: "3.9"
+
+services:
+  cloudflare-ddns:
+    image: cloudflare-ddns:latest
+    container_name: cloudflare-ddns
+    restart: unless-stopped
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
+
+    volumes:
+      - /opt/docker-builds/cloudflare-ddns/ddns-cloudflare.py:/app/ddns-cloudflare.py
+      
+    environment:
+      CF_API_TOKEN: 
+      CF_ZONE_NAME: 
+      CF_HOSTS: 
+
+      GOTIFY_URL: 
+      GOTIFY_TOKEN:
+      GOTIFY_IF_UNCH: 
+
+      TZ: Europe/London
+      SLEEP_INTERVAL: 600
+
+    # Prevent Portainer from trying to pull the image
+    pull_policy: never
+
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+
