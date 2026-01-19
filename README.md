@@ -6,7 +6,7 @@ This project is designed to run cleanly inside Docker, with environment‑driven
 ### Features
 • 	Updates multiple hostnames in a single run  
 • 	Uses Cloudflare’s official API (v4)  
-• 	Detects your public IP via api.ipfy.org  
+• 	Detects your public IP via `api.ipfy.org`  
 • 	Sends Gotify notifications on update or error  
 • 	Clean error handling for:
 • 	invalid/missing API token  
@@ -35,11 +35,9 @@ GOTIFY_IF_UNCH=False
 
 
 ### Running with Docker
-Build the image:
-'docker build -t cloudflare-ddns .'
+Build the image:`docker build -t cloudflare-ddns .`
 
-Run it:
-'docker run --env-file .env cloudflare-ddns'
+Run it:`docker run --env-file .env cloudflare-ddns`
 
 
 ### Portainer Stack Example
@@ -57,14 +55,14 @@ services:
 
 ### Running Locally (without Docker)
 Create a virtual environment:
-```bash
+
 python3 -m venv venv
 source venv/bin/activate
 pip install requests
 
 
 Run the script:
-'python ddns-cloudflare.py'
+`python ddns-cloudflare.py`
 
 ### Error Handling
 The script gracefully handles:
