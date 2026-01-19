@@ -92,3 +92,37 @@ The script prints:
 MIT License — feel free to use, modify, and contribute.
 
 
+
+
+## Cloudflare DDNS Updater
+
+A lightweight, container‑friendly Python script that automatically updates Cloudflare DNS **A records** to match your current public IP address.  
+Perfect for home servers, Tailscale nodes, Proxmox hosts, or any environment where your WAN IP changes.  
+This project is designed to run cleanly inside Docker, with environment‑driven configuration and optional Gotify notifications.
+
+---
+
+### Features
+
+- Updates multiple hostnames in a single run  
+- Uses Cloudflare’s official API (v4)  
+- Detects your public IP via `api.ipify.org`  
+- Sends Gotify notifications on update or error  
+- Clean error handling for:
+  - invalid/missing API token  
+  - unreachable Cloudflare API  
+  - missing DNS records  
+- Docker‑ready  
+- Works perfectly with Portainer stack deployments  
+
+---
+
+### Project Structure
+         cloudflare-ddns/ ├── ddns-cloudflare.py
+            # Main script ├── Dockerfile
+        # Container build ├── stack-example.txt
+# Example Portainer stack └── stack.txt
+# Your local stack (ignored by Git)
+
+
+
