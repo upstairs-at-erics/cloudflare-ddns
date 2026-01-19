@@ -53,25 +53,25 @@ services:
 
 
 
-### Running Locally (without Docker)
-Create a virtual environment:
+### Running Locally (without Docker)  
+Create a virtual environment:  
 
 python3 -m venv venv
 source venv/bin/activate
 pip install requests
 
 
-Run the script:
-`python ddns-cloudflare.py`
+Run the script:  
+`python ddns-cloudflare.py`  
 
 ### Error Handling
-The script gracefully handles:
-• 	Missing or invalid Cloudflare token
-• 	Cloudflare API timeouts
-• 	Zone not found
-• 	DNS record missing
-• 	Network errors
-• 	JSON parsing failures
+The script gracefully handles:  
+• 	Missing or invalid Cloudflare token  
+• 	Cloudflare API timeouts  
+• 	Zone not found  
+• 	DNS record missing  
+• 	Network errors  
+• 	JSON parsing failures  
 All errors are printed and optionally sent to Gotify.
 
 ### Logging  
