@@ -36,7 +36,6 @@ GOTIFY_IF_UNCH=False
 
 ### Running with Docker
 Build the image:`docker build -t cloudflare-ddns .`
-
 Run it:`docker run --env-file .env cloudflare-ddns`
 
 
@@ -56,9 +55,14 @@ services:
 ### Running Locally (without Docker)  
 Create a virtual environment:  
 
-python3 -m venv venv
-source venv/bin/activate
-pip install requests
+python3 -m venv venv  
+source venv/bin/activate  
+pip install requests  
+
+```bash  
+python3 -m venv venv  
+source venv/bin/activate  
+pip install requests  
 
 
 Run the script:  
