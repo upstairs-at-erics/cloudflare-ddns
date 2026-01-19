@@ -26,45 +26,42 @@ cloudflare-ddns/
 ### Environment Variables
 The script is fully environment‑driven. 
 
+```env
 CF_API_TOKEN=your_token_here  
 CF_ZONE_NAME=example.com  
 CF_HOSTS=home.example.com, vpn.example.com  
 GOTIFY_URL=https://gotify.example.com  
 GOTIFY_TOKEN=abc123  
-GOTIFY_IF_UNCH=False  
-
+GOTIFY_IF_UNCH=False
+```  
 
 ### Running with Docker
-Build the image:`docker build -t cloudflare-ddns .`
-Run it:`docker run --env-file .env cloudflare-ddns`
+Build the image:`docker build -t cloudflare-ddns .`  
+Run it:`docker run --env-file .env cloudflare-ddns`  
 
 
 ### Portainer Stack Example
 See stack-example.txt for a ready‑to‑use stack.
 Basic structure:
 
+```docker
 services:  
   ddns:  
     image: cloudflare-ddns:latest  
     env_file:  
       - .env  
     restart: unless-stopped  
-
+```
 
 
 ### Running Locally (without Docker)  
 Create a virtual environment:  
 
-python3 -m venv venv  
-source venv/bin/activate  
-pip install requests  
-
 ```bash  
 python3 -m venv venv  
 source venv/bin/activate  
 pip install requests  
-''' 
-
+```
 
 Run the script:  
 `python ddns-cloudflare.py`  
