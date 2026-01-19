@@ -20,22 +20,23 @@ cloudflare-ddns/
 ├── ddns-cloudflare.py      # Main script  
 ├── Dockerfile              # Container build  
 ├── stack-example.txt       # Example Portainer stack  
+├── .env                    # Your environment keys for locally running (ignored by Git)   
 └── stack.txt               # Your local stack (ignored by Git)  
 
 ### Environment Variables
 The script is fully environment‑driven. 
 
-CF_API_TOKEN=your_token_here
-CF_ZONE_NAME=example.com
-CF_HOSTS=home.example.com, vpn.example.com
-GOTIFY_URL=https://gotify.example.com
-GOTIFY_TOKEN=abc123
-GOTIFY_IF_UNCH=False
+CF_API_TOKEN=your_token_here  
+CF_ZONE_NAME=example.com  
+CF_HOSTS=home.example.com, vpn.example.com  
+GOTIFY_URL=https://gotify.example.com  
+GOTIFY_TOKEN=abc123  
+GOTIFY_IF_UNCH=False  
 
 
 ### Running with Docker
 Build the image:
-'docker build -t cloudflare-ddns .''
+'docker build -t cloudflare-ddns .'
 
 Run it:
 'docker run --env-file .env cloudflare-ddns'
@@ -45,14 +46,14 @@ Run it:
 See stack-example.txt for a ready‑to‑use stack.
 Basic structure:
 
-services:
-  ddns:
-    image: cloudflare-ddns:latest
-    env_file:
-      - .env
-    restart: unless-stopped
+services:  
+  ddns:  
+    image: cloudflare-ddns:latest  
+    env_file:  
+      - .env  
+    restart: unless-stopped  
 
-<pre>```yamlservices:ddns:image: cloudflare-ddns:latestenv_file:- .envrestart: unless-stopped```</pre>
+
 
 ### Running Locally (without Docker)
 Create a virtual environment:
@@ -75,21 +76,21 @@ The script gracefully handles:
 • 	JSON parsing failures
 All errors are printed and optionally sent to Gotify.
 
-### Logging
-The script prints:
-• 	Current public IP
-• 	DNS records in the zone
-• 	Per‑hostname update status
-• 	Error messages when applicable
+### Logging  
+The script prints:  
+• 	Current public IP  
+• 	DNS records in the zone  
+• 	Per‑hostname update status  
+• 	Error messages when applicable  
 
-### Future Enhancements
-• 	Support for AAAA (IPv6) records
-• 	Optional Cloudflare proxy toggle
-• 	Multi‑zone support
-• 	Scheduled cron‑style execution inside container
+### Future Enhancements  
+• 	Support for AAAA (IPv6) records  
+• 	Optional Cloudflare proxy toggle  
+• 	Multi‑zone support  
+• 	Scheduled cron‑style execution inside container  
 
-### License
-MIT License — feel free to use, modify, and contribute.
+### License  
+MIT License — feel free to use, modify, and contribute.  
 
 
 
